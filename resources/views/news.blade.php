@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,125 +9,212 @@
   <link rel="stylesheet" href="{{ asset('css/news.css') }}">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
   <link rel="icon" href="../favicon/favicon.ico" type="image/x-icon" />
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet" />
 </head>
+
 <body>
   <header>
-  <nav class="navbar">
-    <img src="{{ asset('image/disway.png') }}" class="logo" alt="Logo Disway" />
-    <img class="burger" id="burger" src="{{ asset('svg/menu.svg') }}" alt="Menu" />
+    <nav class="navbar">
+      <img src="{{ asset('image/disway.png') }}" class="logo" alt="Logo Disway" />
+      <img class="burger" id="burger" src="{{ asset('svg/menu.svg') }}" alt="Menu" />
+      <div class="menu-items" id="menu">
+        <div class="menu menu-left">
+          <a href="{{ url('/home') }}">Home</a>
+          <a href="{{ url('/about') }}">About Us</a>
+          <a href="{{ url('/platform') }}">Platform Network</a>
+          <a href="{{ url('/our-services') }}">Our Services</a>
+          <a href="{{ url('/news') }}" class="edit-home" style="color: rgb(255, 0, 0);">News</a>
+          <a href="{{ url('/career') }}">Career</a>
+          <a href="{{ url('/contact') }}">Contact</a>
 
-    <div class="menu-items" id="menu">
-      <div class="menu menu-left">
-        <a href="{{ url('/home') }}">Home</a>
-        <a href="{{ url('/about') }}">About Us</a>
-        <a href="{{ url('/platform') }}">Platform Network
-        <a href="{{ url('/our-services') }}">Our Services</a>
-        <a href="{{ url('/news') }}" class="edit-home" style="color: rgb(255, 0, 0);">News</a>
-        <a href="{{ url('/career') }}">Career</a>
-        <a href="{{ url('/contact') }}">Contact</a>
-
-        @auth
+          @auth
           <h3 style="color: rgb(220, 0, 0); margin-top: 10px;">
             Selamat datang, {{ Auth::user()->name }}!
           </h3>
-        @endauth
+          @endauth
 
-        <div class="btn-group" style="margin-top: 10px;">
-          @guest
+          <div class="btn-group" style="margin-top: 10px;">
+            @guest
             <a href="{{ route('login') }}" style="color: white; background-color: rgb(200, 0, 0); padding: 8px 14px; border-radius: 6px; margin-right: 6px;">Login</a>
             <a href="{{ route('register') }}" style="color: white; background-color: rgb(180, 0, 0); padding: 8px 14px; border-radius: 6px; margin-right: 6px;">Register</a>
             <a href="{{ route('password.request') }}" style="color: rgb(150, 0, 0); text-decoration: underline;">Lupa Password?</a>
-          @else
-          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
-            @csrf
-            <button type="submit" style="color: white; background-color: rgb(200, 0, 0); padding: 8px 14px; border-radius: 6px; border: none; cursor: pointer;">Logout</button>
-          </form>
-          @endguest
+            @else
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
+              @csrf
+              <button type="submit" style="color: white; background-color: rgb(200, 0, 0); padding: 8px 14px; border-radius: 6px; border: none; cursor: pointer;">Logout</button>
+            </form>
+            @endguest
+          </div>
         </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="topContainer">
+    <div class="topOverlay">
+      <div class="topContent">
+        <h2>Baca Berita Terkini</h2>
+        <p>Untuk mengetahui peristiwa yang sedang terjadi saat ini.</p>
+        <a href="#contact" class="ctaButton">Hubungi Saya</a>
       </div>
     </div>
-  </nav>
-</header>
+  </section>
 
-<section>
-  <div class="container-news">
-    <div class="main-content">
-      <div class="news-grid">
-        <div class="news-card">
-          <img src="images/news1.jpg" alt="News Image">
-          <h3>Judul Berita 1</h3>
-          <p class="date">24 Juni 2025 | 0 Komentar</p>
-          <p>Konten singkat berita ke-1 ini ditampilkan di halaman depan sebagai preview.</p>
-          <a href="#">Read More</a>
+  <section>
+    <div class="container-news">
+      <div class="newsHeader">
+        <h2>Rekomendasi Berita</h2>
+        <p>Beberapa rekomendasi berita hangat untuk anda</p>
+      </div>
+      <div class="news-layout">
+        <!-- KONTEN BERITA -->
+        <div class="main-content">
+          <div class="news-grid">
+            <!-- news-card 1–12 -->
+            <div class="news-card">
+              <img src="../image/rashford.png" alt="News Image">
+              <h3>Judul Berita 1</h3>
+              <p class="date">24 Juni 2025 | 0 Komentar</p>
+              <p>Konten singkat berita ke-1 ini ditampilkan di halaman depan sebagai preview.</p>
+              <a href="#">Read More</a>
+            </div>
+            <div class="news-card">
+              <img src="../image/rashford.png" alt="News Image">
+              <h3>Judul Berita 1</h3>
+              <p class="date">24 Juni 2025 | 0 Komentar</p>
+              <p>Konten singkat berita ke-1 ini ditampilkan di halaman depan sebagai preview.</p>
+              <a href="#">Read More</a>
+            </div>
+            <div class="news-card">
+              <img src="../image/rashford.png" alt="News Image">
+              <h3>Judul Berita 1</h3>
+              <p class="date">24 Juni 2025 | 0 Komentar</p>
+              <p>Konten singkat berita ke-1 ini ditampilkan di halaman depan sebagai preview.</p>
+              <a href="#">Read More</a>
+            </div>
+            <div class="news-card">
+              <img src="../image/rashford.png" alt="News Image">
+              <h3>Judul Berita 1</h3>
+              <p class="date">24 Juni 2025 | 0 Komentar</p>
+              <p>Konten singkat berita ke-1 ini ditampilkan di halaman depan sebagai preview.</p>
+              <a href="#">Read More</a>
+            </div>
+            <div class="news-card">
+              <img src="../image/rashford.png" alt="News Image">
+              <h3>Judul Berita 1</h3>
+              <p class="date">24 Juni 2025 | 0 Komentar</p>
+              <p>Konten singkat berita ke-1 ini ditampilkan di halaman depan sebagai preview.</p>
+              <a href="#">Read More</a>
+            </div>
+            <div class="news-card">
+              <img src="../image/rashford.png" alt="News Image">
+              <h3>Judul Berita 1</h3>
+              <p class="date">24 Juni 2025 | 0 Komentar</p>
+              <p>Konten singkat berita ke-1 ini ditampilkan di halaman depan sebagai preview.</p>
+              <a href="#">Read More</a>
+            </div>
+            <div class="news-card">
+              <img src="../image/rashford.png" alt="News Image">
+              <h3>Judul Berita 1</h3>
+              <p class="date">24 Juni 2025 | 0 Komentar</p>
+              <p>Konten singkat berita ke-1 ini ditampilkan di halaman depan sebagai preview.</p>
+              <a href="#">Read More</a>
+            </div>
+            <div class="news-card">
+              <img src="../image/rashford.png" alt="News Image">
+              <h3>Judul Berita 1</h3>
+              <p class="date">24 Juni 2025 | 0 Komentar</p>
+              <p>Konten singkat berita ke-1 ini ditampilkan di halaman depan sebagai preview.</p>
+              <a href="#">Read More</a>
+            </div>
+            <div class="news-card">
+              <img src="../image/rashford.png" alt="News Image">
+              <h3>Judul Berita 1</h3>
+              <p class="date">24 Juni 2025 | 0 Komentar</p>
+              <p>Konten singkat berita ke-1 ini ditampilkan di halaman depan sebagai preview.</p>
+              <a href="#">Read More</a>
+            </div>
+            <div class="news-card">
+              <img src="../image/rashford.png" alt="News Image">
+              <h3>Judul Berita 1</h3>
+              <p class="date">24 Juni 2025 | 0 Komentar</p>
+              <p>Konten singkat berita ke-1 ini ditampilkan di halaman depan sebagai preview.</p>
+              <a href="#">Read More</a>
+            </div>
+            <div class="news-card">
+              <img src="../image/rashford.png" alt="News Image">
+              <h3>Judul Berita 1</h3>
+              <p class="date">24 Juni 2025 | 0 Komentar</p>
+              <p>Konten singkat berita ke-1 ini ditampilkan di halaman depan sebagai preview.</p>
+              <a href="#">Read More</a>
+            </div>
+            <div class="news-card">
+              <img src="../image/rashford.png" alt="News Image">
+              <h3>Judul Berita 1</h3>
+              <p class="date">24 Juni 2025 | 0 Komentar</p>
+              <p>Konten singkat berita ke-1 ini ditampilkan di halaman depan sebagai preview.</p>
+              <a href="#">Read More</a>
+            </div>
+            <div class="news-card">
+              <img src="../image/rashford.png" alt="News Image">
+              <h3>Judul Berita 1</h3>
+              <p class="date">24 Juni 2025 | 0 Komentar</p>
+              <p>Konten singkat berita ke-1 ini ditampilkan di halaman depan sebagai preview.</p>
+              <a href="#">Read More</a>
+            </div>
+            <div class="news-card">
+              <img src="../image/rashford.png" alt="News Image">
+              <h3>Judul Berita 1</h3>
+              <p class="date">24 Juni 2025 | 0 Komentar</p>
+              <p>Konten singkat berita ke-1 ini ditampilkan di halaman depan sebagai preview.</p>
+              <a href="#">Read More</a>
+            </div>
+            <div class="news-card">
+              <img src="../image/rashford.png" alt="News Image">
+              <h3>Judul Berita 1</h3>
+              <p class="date">24 Juni 2025 | 0 Komentar</p>
+              <p>Konten singkat berita ke-1 ini ditampilkan di halaman depan sebagai preview.</p>
+              <a href="#">Read More</a>
+            </div>
+            <!-- Tambahkan semua .news-card lainnya di sini seperti sebelumnya -->
+            <!-- ... -->
+          </div>
         </div>
-        <div class="news-card">
-          <img src="images/news2.jpg" alt="News Image">
-          <h3>Judul Berita 2</h3>
-          <p class="date">24 Juni 2025 | 0 Komentar</p>
-          <p>Konten singkat berita ke-2 ini ditampilkan di halaman depan sebagai preview.</p>
-          <a href="#">Read More</a>
-        </div>
-        <div class="news-card">
-          <img src="images/news3.jpg" alt="News Image">
-          <h3>Judul Berita 3</h3>
-          <p class="date">24 Juni 2025 | 0 Komentar</p>
-          <p>Konten singkat berita ke-3 ini ditampilkan di halaman depan sebagai preview.</p>
-          <a href="#">Read More</a>
-        </div>
-        <div class="news-card">
-          <img src="images/news4.jpg" alt="News Image">
-          <h3>Judul Berita 4</h3>
-          <p class="date">24 Juni 2025 | 0 Komentar</p>
-          <p>Konten singkat berita ke-4 ini ditampilkan di halaman depan sebagai preview.</p>
-          <a href="#">Read More</a>
-        </div>
-        <div class="news-card">
-          <img src="images/news5.jpg" alt="News Image">
-          <h3>Judul Berita 5</h3>
-          <p class="date">24 Juni 2025 | 0 Komentar</p>
-          <p>Konten singkat berita ke-5 ini ditampilkan di halaman depan sebagai preview.</p>
-          <a href="#">Read More</a>
-        </div>
-        <div class="news-card">
-          <img src="images/news6.jpg" alt="News Image">
-          <h3>Judul Berita 6</h3>
-          <p class="date">24 Juni 2025 | 0 Komentar</p>
-          <p>Konten singkat berita ke-6 ini ditampilkan di halaman depan sebagai preview.</p>
-          <a href="#">Read More</a>
-        </div>
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+          <div class="widget">
+            <h4>Subscribe Widget</h4>
+            <ul class="subscribe-list">
+              <li><a href=""><span>Follow on Facebook</span><img src="../image/instagram.png"></a></li>
+              <li><a href="#"><span>Follow on Twitter</span><img src="../image/twitter.png"></a></li>
+              <li><a href="#"><span>Subscribe on YouTube</span><img src="../image/youtube.png"></a></li>
+            </ul>
+          </div>
+
+          <div class="widget">
+            <h4>Blog Category</h4>
+            <ul>
+              <li><a href="#">Berita Nasional</a></li>
+              <li><a href="#">Opini</a></li>
+              <li><a href="#">Politik</a></li>
+              <li><a href="#">Teknologi</a></li>
+            </ul>
+          </div>
+
+          <div class="widget">
+            <h4>Kalender</h4>
+            <div id="calendar"></div>
+            <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+          </div>
+        </aside>
       </div>
     </div>
+  </section>
 
-    <aside class="sidebar">
-      <div class="widget">
-        <h4>Subscribe Widget</h4>
-        <ul>
-          <li><a href="#">Follow on Facebook</a></li>
-          <li><a href="#">Follow on Twitter</a></li>
-          <li><a href="#">Subscribe via RSS</a></li>
-        </ul>
-      </div>
-
-      <div class="widget">
-        <h4>Blog Category</h4>
-        <ul>
-          <li><a href="#">Berita Nasional</a></li>
-          <li><a href="#">Opini</a></li>
-          <li><a href="#">Politik</a></li>
-          <li><a href="#">Teknologi</a></li>
-        </ul>
-      </div>
-
-      <div class="widget">
-        <h4>Kalender</h4>
-        <p>📅 Juni 2025</p>
-      </div>
-    </aside>
-  </div>
-</section>
   <script src="{{ asset('js/news.js') }}"></script>
 
-  <!-- ======= Footer Section ======= -->
+  <!-- ======= FOOTER ======= -->
   <footer class="site-footer">
     <div class="footer-container">
       <div class="footer-logo-section">
@@ -178,4 +266,5 @@
     </div>
   </footer>
 </body>
+
 </html>

@@ -1,539 +1,679 @@
-/* RESET DASAR */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html, body {
-    height: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* NAVBAR */
-nav.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 90px;
-    padding: 0 24px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-    position: relative;
-    z-index: 10;
-}
-
-nav img.logo {
-    height: 40px;
-    width: auto;
-    transition: transform 0.3s ease;
-}
-
-nav img.logo:hover {
-    transform: scale(1.05);
-}
-
-/* Burger icon */
-.burger {
-    display: none;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    z-index: 30;
-}
-
-/* Menu Items */
-.menu-items {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    font-size: 16px; /* Ukuran font diperkecil */
-}
-
-/* Menu kiri */
-.menu-left {
-    display: flex;
-    gap: 20px;
-}
-
-.menu-left a {
-    color: #000;
-    text-decoration: none;
-    padding: 6px 10px;
-    border-radius: 6px;
-    transition: background 0.3s, color 0.3s, transform 0.2s;
-    position: relative;
-    overflow: hidden;
-    font-size: 16px;
-}
-
-.menu-left a:hover {
-    background-color: #931616;
-    color: #fff;
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(134, 35, 35, 0.4);
-}
-
-.menu-left a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 2px;
-    width: 100%;
-    background: #ffffffd3;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-}
-
-.menu-left a:hover::after {
-    transform: scaleX(1);
-}
-
-/* ========== RESPONSIVE DESIGN ========== */
-@media (max-width: 768px) {
-    nav.navbar {
-        justify-content: flex-start;
-    }
-
-    .burger {
-        display: block;
-        margin-right: 20px;
-        z-index: 30;
-    }
-
-    nav img.logo {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        height: 35px;
-    }
-
-    .menu-items {
-        flex-direction: column;
-        align-items: flex-start;
-        width: 70%;
-        max-width: 300px;
-        position: absolute;
-        top: 90px;
-        left: 0; /* Muncul dari kiri */
-        background: #c2c2c2;
-        padding: 20px;
-        border-top: 1px solid #dd1616;
-        transform: translateX(-100%); /* Posisi awal tersembunyi di kiri */
-        transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
-        opacity: 0;
-        visibility: hidden;
-        z-index: 25;
-    }
-
-    .menu-items.active {
-        transform: translateX(0);
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .menu-left {
-        flex-direction: column;
-        gap: 14px;
-        width: 100%;
-    }
-
-    .menu-left a {
-        width: 100%;
-        padding: 10px 0;
-        font-size: 18px;
-    }
-}
-
-/* === DROPDOWN === */
-.dropdown {
-    position: relative;
-}
-
-.dropdown .dropbtn {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 16px;
-}
-
-.dropdown .chevron {
-    width: 14px;
-    height: 14px;
-    transition: transform 0.3s;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: #ffffff;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-    z-index: 20;
-    flex-direction: column;
-    padding: 10px 0;
-}
-
-.dropdown-content a {
-    font-size: 14px;
-    color: #000;
-    padding: 10px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a#fsize {
-    font-size: 14px;
-    padding-left: 30px;
-}
-
-.dropdown-content a:hover {
-    background-color: #862323;
-    color: #fff;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown:hover .chevron {
-    transform: rotate(180deg);
-}
-
-/* === Content Styles === */
-.container-news {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.main-content {
-  flex: 3;
-  min-width: 0;
-}
-
-.news-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-}
-
-.news-card {
-  background: #fff;
-  border: 1px solid #ddd;
-  padding: 12px;
-  transition: 0.3s;
-}
-
-.news-card:hover {
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.news-card img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-.news-card h3 {
-  margin: 10px 0 5px;
-  font-size: 1.1rem;
-}
-
-.news-card .date {
-  font-size: 0.85rem;
-  color: gray;
-}
-
-.news-card a {
-  display: inline-block;
-  margin-top: 10px;
-  color: #d00;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.sidebar {
-  flex: 1;
-  min-width: 250px;
-}
-
-.widget {
-  background: #fff;
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid #ddd;
-}
-
-.widget h4 {
-  margin-bottom: 10px;
-  font-size: 1rem;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 5px;
-}
-
-.widget ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.widget ul li {
-  margin-bottom: 8px;
-}
-
-.widget ul li a {
-  color: #333;
-  text-decoration: none;
-  font-size: 0.95rem;
-}
-
-/* === Footer Styles === */
-.site-footer {
-    background-color: #434343;
-    color: #ccc;
-    padding: 40px 20px 20px;
-    font-family: 'Segoe UI', sans-serif;
+  /* RESET DASAR */
+  * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
   }
-  
-  .footer-container {
+
+  html, body {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  /* NAVBAR */
+  nav.navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 90px;
+      padding: 0 24px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+      position: relative;
+      z-index: 10;
+  }
+
+  nav img.logo {
+      height: 40px;
+      width: auto;
+      transition: transform 0.3s ease;
+  }
+
+  nav img.logo:hover {
+      transform: scale(1.05);
+  }
+
+  /* Burger icon */
+  .burger {
+      display: none;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      z-index: 30;
+  }
+
+  /* Menu Items */
+  .menu-items {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 16px; /* Ukuran font diperkecil */
+  }
+
+  /* Menu kiri */
+  .menu-left {
+      display: flex;
+      gap: 20px;
+  }
+
+  .menu-left a {
+      color: #000;
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: background 0.3s, color 0.3s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+      font-size: 16px;
+  }
+
+  .menu-left a:hover {
+      background-color: #931616;
+      color: #fff;
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(134, 35, 35, 0.4);
+  }
+
+  .menu-left a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      width: 100%;
+      background: #ffffffd3;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+  }
+
+  .menu-left a:hover::after {
+      transform: scaleX(1);
+  }
+
+  /* ========== RESPONSIVE DESIGN ========== */
+  @media (max-width: 768px) {
+      nav.navbar {
+          justify-content: flex-start;
+      }
+
+      .burger {
+          display: block;
+          margin-right: 20px;
+          z-index: 30;
+      }
+
+      nav img.logo {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          height: 35px;
+      }
+
+      .menu-items {
+          flex-direction: column;
+          align-items: flex-start;
+          width: 70%;
+          max-width: 300px;
+          position: absolute;
+          top: 90px;
+          left: 0; /* Muncul dari kiri */
+          background: #c2c2c2;
+          padding: 20px;
+          border-top: 1px solid #dd1616;
+          transform: translateX(-100%); /* Posisi awal tersembunyi di kiri */
+          transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+          opacity: 0;
+          visibility: hidden;
+          z-index: 25;
+      }
+
+      .menu-items.active {
+          transform: translateX(0);
+          opacity: 1;
+          visibility: visible;
+      }
+
+      .menu-left {
+          flex-direction: column;
+          gap: 14px;
+          width: 100%;
+      }
+
+      .menu-left a {
+          width: 100%;
+          padding: 10px 0;
+          font-size: 18px;
+      }
+  }
+
+  /* === DROPDOWN === */
+  .dropdown {
+      position: relative;
+  }
+
+  .dropdown .dropbtn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 16px;
+  }
+
+  .dropdown .chevron {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.3s;
+  }
+
+  .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #ffffff;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      z-index: 20;
+      flex-direction: column;
+      padding: 10px 0;
+  }
+
+  .dropdown-content a {
+      font-size: 14px;
+      color: #000;
+      padding: 10px 16px;
+      text-decoration: none;
+      display: block;
+  }
+
+  .dropdown-content a#fsize {
+      font-size: 14px;
+      padding-left: 30px;
+  }
+
+  .dropdown-content a:hover {
+      background-color: #862323;
+      color: #fff;
+  }
+
+  .dropdown:hover .dropdown-content {
+      display: block;
+  }
+
+  .dropdown:hover .chevron {
+      transform: rotate(180deg);
+  }
+
+  /* === Content Styles === */
+  /* Container Top */
+  .topContainer {
+    position: relative;
+    background: linear-gradient(135deg, #000000 0%, #4d0000 40%, #8B0000 70%, #ff1a1a 100%);
+    color: #ffffff;
+    min-height: 900px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .topOverlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* efek gelap semi-transparan */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .topContent {
+    text-align: center;
+    max-width: 800px;
+    animation: fadeInUp 1s ease-out;
+  }
+
+  .topContent h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+
+  .topContent p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .ctaButton {
+    background-color: #ffffff;
+    color: #8B0000;
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  .ctaButton:hover {
+    background-color: #8B0000;
+    color: #ffffff;
+  }
+
+  /* Simple animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .news-layout {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 20px;
     max-width: 1200px;
     margin: auto;
   }
-  
-  .footer-logo-section {
-    flex: 1 1 250px;
-    margin-bottom: 20px;
+
+  .main-content {
+    flex: 3;
+    min-width: 0;
   }
-  
-  .footer-logo {
-    width: 150px;
-    margin-bottom: 10px;
+
+  .newsHeader {
+    padding-top: 30px;
+    text-align: center;
+    margin-bottom: 2rem;
   }
-  
-  .footer-description {
-    font-size: 14px;
-    line-height: 1.6;
+
+  .newsHeader h2 {
+    font-size: 2.8rem;
+    color: #8B0000;
+    margin-bottom: 0.5rem;
   }
-  
-  .footer-links {
+
+  .newsHeader p {
+    font-size: 1.1rem;
+    color: #555;
+  }
+
+  /* .news-layout {
     display: flex;
-    flex: 2 1 600px;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    gap: 30px;
+    align-items: flex-start;
+  } */
+
+  /* Pastikan grid-nya fleksibel */
+  .news-grid {
+    flex: 3;
   }
-  
-  .footer-column h4 {
-    color: #fff;
-    font-size: 16px;
+
+  /* Sidebar tetap ukuran fix */
+  .sidebar {
+    flex: 1;
+    min-width: 250px;
+  }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    flex: 3;
+  }
+
+  .news-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 12px;
+    transition: 0.3s;
+  }
+
+  .news-card:hover {
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  .news-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .news-card h3 {
+    margin: 10px 0 5px;
+    font-size: 1.1rem;
+  }
+
+  .news-card .date {
+    font-size: 0.85rem;
+    color: gray;
+  }
+
+  .news-card a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #d00;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .sidebar {
+    flex: 1;
+    min-width: 250px;
+  }
+
+  .widget {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+  }
+
+  .subscribe-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .subscribe-list img {
+    width: 25px;
+    margin-right: 60px;
+  }
+  .subscribe-list li {
     margin-bottom: 10px;
   }
-  
-  .footer-column ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .footer-column ul li {
-    margin-bottom: 8px;
-  }
-  
-  .footer-column ul li a {
+
+  .subscribe-list li a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     text-decoration: none;
-    color: #ccc;
-    font-size: 14px;
-    transition: color 0.3s;
+    color: #333;
+    font-size: 0.95rem;
   }
-  
-  .footer-column ul li a:hover {
+
+  .subscribe-list li a:hover {
     color: #c10000;
   }
-  
-  .social-icons a {
-    display: inline-block;
-    margin-right: 10px;
-    font-size: 18px;
-    color: #ccc;
-    transition: color 0.3s;
+
+  .subscribe-list li a:hover .icon-right {
+    color: #931616;
   }
-  
-  .social-icons a:hover {
-    color: #d10000;
+
+  .icon-right {
+    font-size: 1.2rem;
+    margin-left: 10px;
+    color: #c10000;
   }
-  
-  .footer-bottom {
-    border-top: 1px solid #ff0000;
-    margin-top: 30px;
-    padding-top: 15px;
-    text-align: center;
-    font-size: 13px;
-    color: #888;
+
+
+  .widget h4 {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
   }
-  
-  .footer-bottom a {
-    color: #888;
+
+  .widget ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .widget ul li {
+    margin-bottom: 8px;
+  }
+
+  .widget ul li a {
+    color: #333;
     text-decoration: none;
-    margin: 0 5px;
+    font-size: 0.95rem;
   }
-  
-  .footer-bottom a:hover {
-    color: #fff;
-  }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
+
+  /* === Footer Styles === */
+  .site-footer {
+      background-color: #434343;
+      color: #ccc;
+      padding: 40px 20px 20px;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    
     .footer-container {
-      flex-direction: column;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: auto;
     }
-  
-    .footer-links {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .footer-column {
-      margin-bottom: 20px;
-      text-align: center;
-    }
-  
+    
     .footer-logo-section {
+      flex: 1 1 250px;
+      margin-bottom: 20px;
+    }
+    
+    .footer-logo {
+      width: 150px;
+      margin-bottom: 10px;
+    }
+    
+    .footer-description {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    
+    .footer-links {
+      display: flex;
+      flex: 2 1 600px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    
+    .footer-column h4 {
+      color: #fff;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-column ul li {
+      margin-bottom: 8px;
+    }
+    
+    .footer-column ul li a {
+      text-decoration: none;
+      color: #ccc;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+    
+    .footer-column ul li a:hover {
+      color: #c10000;
+    }
+    
+    .social-icons a {
+      display: inline-block;
+      margin-right: 10px;
+      font-size: 18px;
+      color: #ccc;
+      transition: color 0.3s;
+    }
+    
+    .social-icons a:hover {
+      color: #d10000;
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid #ff0000;
+      margin-top: 30px;
+      padding-top: 15px;
       text-align: center;
+      font-size: 13px;
+      color: #888;
+    }
+    
+    .footer-bottom a {
+      color: #888;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+    
+    .footer-bottom a:hover {
+      color: #fff;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+      }
+    
+      .footer-links {
+        flex-direction: column;
+        align-items: center;
+      }
+    
+      .footer-column {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+    
+      .footer-logo-section {
+        text-align: center;
+      }
+    }
+    
+
+  /* RESPONSIVE DROPDOWN */
+  @media (max-width: 768px) {
+      .dropdown-content {
+          position: relative;
+          box-shadow: none;
+          background: transparent;
+      }
+
+      .dropdown.active .dropdown-content {
+          display: flex;
+      }
+
+      .dropdown .chevron {
+          margin-left: auto;
+      }
+  }
+
+  /* CSS Untuk loading saat page di buka */
+  .loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #400406;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 9999;
+    padding-bottom: 150px;
+    gap: 25px;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .loader .loading-text {
+    color: white;
+    font-family: sans-serif;
+    font-size: 1rem;
+    margin-top: 20px;
+    animation: fadeIn 1s ease-in-out infinite;
+    opacity: 0.8;
+    letter-spacing: 2px;
+  }
+
+  .loader-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+  /* Ball container */
+  .ball-wrapper {
+    position: relative;
+    width: 30px;
+    height: 100px;
+  }
+
+  /* Ball design */
+  .ball {
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle at 30% 30%, #ffffff, #bfbfbf);
+    border-radius: 50%;
+    position: absolute;
+    bottom: 20px;
+    animation: bounce 0.75s infinite cubic-bezier(0.33, 1, 0.68, 1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    filter: brightness(1.2);
+  }
+
+  /* Shadow effect */
+  .shadow {
+    width: 30px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    filter: blur(1px);
+    animation: shadowScale 0.75s infinite ease-in-out;
+  }
+
+  /* Staggered delay for sequential motion */
+  .ball-wrapper:nth-child(1) .ball,
+  .ball-wrapper:nth-child(1) .shadow {
+    animation-delay: 0s;
+  }
+  .ball-wrapper:nth-child(2) .ball,
+  .ball-wrapper:nth-child(2) .shadow {
+    animation-delay: 0.15s;
+  }
+  .ball-wrapper:nth-child(3) .ball,
+  .ball-wrapper:nth-child(3) .shadow {
+    animation-delay: 0.3s;
+  }
+
+  /* Bounce with elastic motion */
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+      filter: brightness(1);
+    }
+    30% {
+      filter: brightness(1.4);
+    }
+    50% {
+      transform: translateY(-60px);
+      filter: brightness(1.6);
     }
   }
-  
 
-/* RESPONSIVE DROPDOWN */
-@media (max-width: 768px) {
-    .dropdown-content {
-        position: relative;
-        box-shadow: none;
-        background: transparent;
+  /* Shadow shrinking and darkening */
+  @keyframes shadowScale {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.2;
     }
-
-    .dropdown.active .dropdown-content {
-        display: flex;
+    50% {
+      transform: scale(0.6);
+      opacity: 0.35;
     }
-
-    .dropdown .chevron {
-        margin-left: auto;
-    }
-}
-
-/* CSS Untuk loading saat page di buka */
-.loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #400406;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  z-index: 9999;
-  padding-bottom: 150px;
-  gap: 25px;
-  transition: all 0.5s ease-in-out;
-}
-
-.loader .loading-text {
-  color: white;
-  font-family: sans-serif;
-  font-size: 1rem;
-  margin-top: 20px;
-  animation: fadeIn 1s ease-in-out infinite;
-  opacity: 0.8;
-  letter-spacing: 2px;
-}
-
-.loader-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-
-/* Ball container */
-.ball-wrapper {
-  position: relative;
-  width: 30px;
-  height: 100px;
-}
-
-/* Ball design */
-.ball {
-  width: 20px;
-  height: 20px;
-  background: radial-gradient(circle at 30% 30%, #ffffff, #bfbfbf);
-  border-radius: 50%;
-  position: absolute;
-  bottom: 20px;
-  animation: bounce 0.75s infinite cubic-bezier(0.33, 1, 0.68, 1);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-  filter: brightness(1.2);
-}
-
-/* Shadow effect */
-.shadow {
-  width: 30px;
-  height: 5px;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 50%;
-  position: absolute;
-  bottom: 0;
-  filter: blur(1px);
-  animation: shadowScale 0.75s infinite ease-in-out;
-}
-
-/* Staggered delay for sequential motion */
-.ball-wrapper:nth-child(1) .ball,
-.ball-wrapper:nth-child(1) .shadow {
-  animation-delay: 0s;
-}
-.ball-wrapper:nth-child(2) .ball,
-.ball-wrapper:nth-child(2) .shadow {
-  animation-delay: 0.15s;
-}
-.ball-wrapper:nth-child(3) .ball,
-.ball-wrapper:nth-child(3) .shadow {
-  animation-delay: 0.3s;
-}
-
-/* Bounce with elastic motion */
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-    filter: brightness(1);
   }
-  30% {
-    filter: brightness(1.4);
-  }
-  50% {
-    transform: translateY(-60px);
-    filter: brightness(1.6);
-  }
-}
-
-/* Shadow shrinking and darkening */
-@keyframes shadowScale {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.2;
-  }
-  50% {
-    transform: scale(0.6);
-    opacity: 0.35;
-  }
-}
 
