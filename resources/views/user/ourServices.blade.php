@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <header>
+  <header>
     <nav class="navbar">
       <img src="{{ asset('image/disway.png') }}" class="logo" alt="Logo Disway" />
       <img class="burger" id="burger" src="{{ asset('svg/menu.svg') }}" alt="Menu" />
@@ -23,33 +23,33 @@
           <a href="{{ url('/home') }}">Home</a>
           <a href="{{ url('/about') }}">About Us</a>
           <a href="{{ url('/platform') }}">Platform Network
-          <a href="{{ url('/our-services') }}" class="edit-home" style="color: rgb(255, 0, 0);">Our Services</a>
-          <a href="{{ url('/news') }}">News</a>
-          <a href="{{ url('/career') }}">Career</a>
-          <a href="{{ url('/contact') }}">Contact</a>
+            <a href="{{ url('/our-services') }}" class="edit-home" style="color: rgb(255, 0, 0);">Our Services</a>
+            <a href="{{ url('/news') }}">News</a>
+            <a href="{{ url('/career') }}">Career</a>
+            <a href="{{ url('/contact') }}">Contact</a>
 
-          @auth
+            @auth
             <h3 style="color: rgb(220, 0, 0); margin-top: 10px;">
               Selamat datang, {{ Auth::user()->name }}!
             </h3>
-          @endauth
+            @endauth
 
-          <div class="btn-group" style="margin-top: 10px;">
-            @guest
+            <div class="btn-group" style="margin-top: 10px;">
+              @guest
               <a href="{{ route('login') }}" style="color: white; background-color: rgb(200, 0, 0); padding: 8px 14px; border-radius: 6px; margin-right: 6px;">Login</a>
               <a href="{{ route('register') }}" style="color: white; background-color: rgb(180, 0, 0); padding: 8px 14px; border-radius: 6px; margin-right: 6px;">Register</a>
               <a href="{{ route('password.request') }}" style="color: rgb(150, 0, 0); text-decoration: underline;">Lupa Password?</a>
-            @else
+              @else
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
                 @csrf
                 <button type="submit" style="color: white; background-color: rgb(200, 0, 0); padding: 8px 14px; border-radius: 6px; border: none; cursor: pointer;">Logout</button>
               </form>
-            @endguest
-          </div>
+              @endguest
+            </div>
         </div>
       </div>
     </nav>
-</header>
+  </header>
 
   <!-- Background decorative elements -->
   <section class="container-top">
@@ -190,39 +190,39 @@
     </div>
   </section>
 
-<!--Event Section-->
-<section class="event-section" id="event-organizer">
-  <div class="event-container">
-    <!-- Header -->
-    <div class="event-header">
-      <h2 class="section-title">Event Organizer</h2>
-      <p class="section-description">
-        Disway Group menyelenggarakan berbagai event berskala nasional & regional, dari perencanaan hingga
-        pelaksanaan. Event kami mencerminkan profesionalisme, kreativitas, dan dampak positif.
-      </p>
-    </div>
-
-    <!-- Jenis Acara (Tags) -->
-    <div class="event-types">
-      <h3>Jenis Acara</h3>
-      <div class="tags-scroll" id="eventTags">
-        <span>Disway Awards 2025</span>
-        <span>Disway Mancing</span>
-        <span>SCDG</span>
-        <span>Disway Cup</span>
-        <span>Seminar & Peluncuran</span>
+  <!--Event Section-->
+  <section class="event-section" id="event-organizer">
+    <div class="event-container">
+      <!-- Header -->
+      <div class="event-header">
+        <h2 class="section-title">Event Organizer</h2>
+        <p class="section-description">
+          Disway Group menyelenggarakan berbagai event berskala nasional & regional, dari perencanaan hingga
+          pelaksanaan. Event kami mencerminkan profesionalisme, kreativitas, dan dampak positif.
+        </p>
       </div>
-    </div>
 
-    <!-- Search Box -->
-    <form method="GET" action="/our-services" class="event-search" id="searchForm">
-      <input type="text" name="search" id="searchEvent" placeholder="🔍 Cari event..."
-        value="{{ request('search') }}" />
-    </form>
+      <!-- Jenis Acara (Tags) -->
+      <div class="event-types">
+        <h3>Jenis Acara</h3>
+        <div class="tags-scroll" id="eventTags">
+          <span>Disway Awards 2025</span>
+          <span>Disway Mancing</span>
+          <span>SCDG</span>
+          <span>Disway Cup</span>
+          <span>Seminar & Peluncuran</span>
+        </div>
+      </div>
 
-    <!-- Event Cards Only -->
-    <div class="event-gallery">
-      @foreach ($events as $event)
+      <!-- Search Box -->
+      <form method="GET" action="/our-services" class="event-search" id="searchForm">
+        <input type="text" name="search" id="searchEvent" placeholder="🔍 Cari event..."
+          value="{{ request('search') }}" />
+      </form>
+
+      <!-- Event Cards Only -->
+      <div class="event-gallery">
+        @foreach ($events as $event)
         <div class="event-card">
           <div class="event-img" style="background-image: url('{{ $event->img }}')"></div>
           <div class="event-info">
@@ -230,13 +230,51 @@
             <p>{{ $event->desc }}</p>
           </div>
         </div>
-      @endforeach
+        @endforeach
+      </div>
+    </div>
+  </section>
+
+  <!-- Public Relation Section -->
+  <!-- Printing Section -->
+  <section id="printing-service" class="service-section">
+  <div class="printing-wrapper">
+    <!-- Kiri: Teks -->
+    <div class="printing-text">
+      <h2 class="section-title">Layanan Cetak (Printing)</h2>
+      <p class="section-description">
+        Kami menyediakan layanan cetak profesional seperti surat kabar, majalah, poster, dan berbagai media cetak lainnya untuk kebutuhan bisnis dan promosi Anda.
+      </p>
+    </div>
+
+    <!-- Kanan: Kartu Miring -->
+    <div class="printing-cards">
+      <div class="print-card rotate-left">
+        <img src="../image/np1.jpg" alt="Surat Kabar 1">
+        <div class="card-caption">
+          <span>Surat Kabar 1</span>
+          <small>20 items</small>
+        </div>
+      </div>
+
+      <div class="print-card rotate-right">
+        <img src="../image/poster1.jpg" alt="Poster 1">
+        <div class="card-caption">
+          <span>Poster 1</span>
+          <small>15 items</small>
+        </div>
+      </div>
+
+      <div class="print-card rotate-left-alt">
+        <img src="../image/poster2.jpg" alt="Branding Material">
+        <div class="card-caption">
+          <span>Branding Material</span>
+          <small>25 items</small>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-  
-  <!-- Public Relation Section -->
-   
 
   <!-- Floating action button -->
   <button class="fab" onclick="scrollToTop()">
@@ -298,17 +336,17 @@
   </footer>
 
   <script>
-    window.deleteSingle = function (id) {
+    window.deleteSingle = function(id) {
       if (!confirm('Yakin ingin menghapus event ini?')) return;
 
       fetch(`/events/${id}`, {
-        method: 'DELETE',
-        headers: {
-          'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        }
-      })
+          method: 'DELETE',
+          headers: {
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          }
+        })
         .then(res => {
           if (!res.ok) throw new Error('Gagal menghapus');
           // Reload data di halaman (bisa juga hanya hapus elemen DOM jika ingin dinamis)
