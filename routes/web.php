@@ -5,7 +5,6 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CareerController;
-use App\Http\Controllers\Admin\CareerAdminController;
 
 // ====================
 // 🔐 Auth Routes
@@ -27,16 +26,15 @@ Route::get('/platform', fn() => view('platform'));
 // ====================
 // 🧑 Career Routes (User & Admin)
 // ====================
-// USER
+
 Route::get('/career', [CareerController::class, 'index'])->name('career.home');
 Route::post('/career', [CareerController::class, 'store'])->name('career.store');
 
-// ADMIN
-Route::middleware(['auth', 'is_admin'])->group(function () {
-    Route::get('/admin/career', [CareerAdminController::class, 'index'])->name('admin.career.index');
-    Route::post('/admin/career/{id}/accept', [CareerAdminController::class, 'accept'])->name('admin.career.accept');
-    Route::post('/admin/career/{id}/reject', [CareerAdminController::class, 'reject'])->name('admin.career.reject');
-    Route::delete('/admin/career/{id}', [CareerAdminController::class, 'destroy'])->name('admin.career.delete');
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin/career', [CareerController::class, 'index'])->name('admin.career.index');
+    Route::post('/admin/career/{id}/accept', [CareerController::class, 'accept'])->name('admin.career.accept');
+    Route::post('/admin/career/{id}/reject', [CareerController::class, 'reject'])->name('admin.career.reject');
+    Route::delete('/admin/career/{id}', [CareerController::class, 'delete'])->name('admin.career.delete');
 });
 
 // ====================

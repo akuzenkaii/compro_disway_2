@@ -55,13 +55,13 @@
       <div class="topContent">
         <h2>Baca Berita Terkini</h2>
         <p>Untuk mengetahui peristiwa yang sedang terjadi saat ini.</p>
-        <a href="#contact" class="ctaButton">Hubungi Saya</a>
+        <a href="#content" class="ctaButton">Hubungi Saya</a>
       </div>
     </div>
   </section>
 
   <section>
-    <div class="container-news">
+    <div class="container-news" id="content">
       <div class="newsHeader">
         <h2>Rekomendasi Berita</h2>
         <p>Beberapa rekomendasi berita hangat untuk anda</p>

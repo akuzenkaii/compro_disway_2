@@ -29,65 +29,186 @@
             <a href="{{ url('/contact') }}">Contact</a>
 
             @auth
-        <h3 style="color: rgb(220, 0, 0); margin-top: 10px;">
-          Selamat datang, {{ Auth::user()->name }}!
-        </h3>
-      @endauth
+            <h3 style="color: rgb(220, 0, 0); margin-top: 10px;">
+              Selamat datang, {{ Auth::user()->name }}!
+            </h3>
+            @endauth
 
             <div class="btn-group" style="margin-top: 10px;">
               @guest
-          <a href="{{ route('login') }}"
-          style="color: white; background-color: rgb(200, 0, 0); padding: 8px 14px; border-radius: 6px; margin-right: 6px;">Login</a>
-          <a href="{{ route('register') }}"
-          style="color: white; background-color: rgb(180, 0, 0); padding: 8px 14px; border-radius: 6px; margin-right: 6px;">Register</a>
-          <a href="{{ route('password.request') }}" style="color: rgb(150, 0, 0); text-decoration: underline;">Lupa
-          Password?</a>
-        @else
-          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
-          @csrf
-          <button type="submit"
-            style="color: white; background-color: rgb(200, 0, 0); padding: 8px 14px; border-radius: 6px; border: none; cursor: pointer;">Logout</button>
-          </form>
-        @endguest
+              <a href="{{ route('login') }}"
+                style="color: white; background-color: rgb(200, 0, 0); padding: 8px 14px; border-radius: 6px; margin-right: 6px;">Login</a>
+              <a href="{{ route('register') }}"
+                style="color: white; background-color: rgb(180, 0, 0); padding: 8px 14px; border-radius: 6px; margin-right: 6px;">Register</a>
+              <a href="{{ route('password.request') }}" style="color: rgb(150, 0, 0); text-decoration: underline;">Lupa
+                Password?</a>
+              @else
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
+                @csrf
+                <button type="submit"
+                  style="color: white; background-color: rgb(200, 0, 0); padding: 8px 14px; border-radius: 6px; border: none; cursor: pointer;">Logout</button>
+              </form>
+              @endguest
             </div>
         </div>
       </div>
     </nav>
+
+    <style>
+      .career-admin-container {
+        max-width: 900px;
+        margin: 40px auto;
+        background: white;
+        padding: 30px 40px;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      }
+
+      .career-title {
+        text-align: center;
+        font-size: 26px;
+        font-weight: 600;
+        margin-bottom: 30px;
+        color: #222;
+      }
+
+      .application-card {
+        background: #f9fafb;
+        border: 1px solid #e5e7eb;
+        border-radius: 14px;
+        padding: 24px 28px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      }
+
+      .applicant-info h3 {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .applicant-info p {
+        margin: 4px 0;
+        font-size: 15px;
+        color: #374151;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        margin-left: 8px;
+      }
+
+      .badge-pending {
+        background: #e0e7ff;
+        color: #4338ca;
+      }
+
+      .file-links {
+        margin: 14px 0;
+      }
+
+      .file-links a {
+        margin-right: 12px;
+        text-decoration: none;
+        color: #2563eb;
+        font-weight: 500;
+        display: inline-block;
+        font-size: 14px;
+      }
+
+      .file-links i {
+        margin-right: 4px;
+      }
+
+      .action-buttons {
+        margin-top: 16px;
+      }
+
+      .btn {
+        padding: 10px 18px;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        margin-right: 10px;
+        font-size: 14px;
+        transition: 0.3s ease-in-out;
+      }
+
+      .btn-accept {
+        background: #10b981;
+        color: white;
+      }
+
+      .btn-reject {
+        background: #f59e0b;
+        color: white;
+      }
+
+      .btn-delete {
+        background: #ef4444;
+        color: white;
+      }
+
+      .btn:hover {
+        transform: scale(1.03);
+      }
+    </style>
   </header>
 
-  @extends('layouts.app')
+  <section class="admin">
+    <div class="career-admin-container">
+      <h2 class="career-title">Daftar Lamaran Masuk</h2>
 
-  @section('content')
-    <div class="container">
-    <h2>Daftar Lamaran Kerja</h2>
+      {{-- @dd($applications) --}}
+      @foreach($applications as $app)
+      <div class="application-card">
+        <div class="applicant-info">
+          <h3>
+            {{ $app->name }}
+            <span class="badge badge-{{ $app->status }}">{{ ucfirst($app->status) }}</span>
+          </h3>
+          <p><strong>Email:</strong> {{ $app->email }} | <strong>No HP:</strong> {{ $app->phone }}</p>
+          <p><strong>Kantor Tujuan:</strong> {{ $app->office }}</p>
+          <p><strong>Status:</strong> <span class="badge badge-{{ $app->status }}">{{ ucfirst($app->status) }}</span></p>
+        </div>
 
-    @foreach($applications as $app)
-    <div class="card my-2 p-3">
-      <strong>{{ $app->name }}</strong> - {{ $app->email }} - {{ $app->phone }}
-      <br>Kantor: {{ $app->office }} | Status: <strong>{{ ucfirst($app->status) }}</strong><br>
-      <a href="{{ asset('storage/' . $app->cv) }}" target="_blank">Lihat CV</a>
-      @if($app->cover_letter)
-      | <a href="{{ asset('storage/' . $app->cover_letter) }}" target="_blank">Cover Letter</a>
-    @endif
+        <div class="file-links">
+          <a href="{{ asset('storage/' . $app->cv) }}" target="_blank">
+            <i class="uil uil-file-alt"></i> Lihat CV
+          </a>
+          @if($app->cover_letter)
+          | <a href="{{ asset('storage/' . $app->cover_letter) }}" target="_blank">
+            <i class="uil uil-file-edit"></i> Cover Letter
+          </a>
+          @endif
+        </div>
 
-      <form action="{{ route('admin.career.accept', $app->id) }}" method="POST" style="display:inline;">
-      @csrf
-      <button class="btn btn-success btn-sm">Terima</button>
-      </form>
+        <div class="action-buttons">
+          <form action="{{ route('admin.career.accept', $app->id) }}" method="POST" style="display:inline;">
+            @csrf
+            <button class="btn btn-accept">✔ Terima</button>
+          </form>
 
-      <form action="{{ route('admin.career.reject', $app->id) }}" method="POST" style="display:inline;">
-      @csrf
-      <button class="btn btn-warning btn-sm">Tolak</button>
-      </form>
+          <form action="{{ route('admin.career.reject', $app->id) }}" method="POST" style="display:inline;">
+            @csrf
+            <button class="btn btn-reject">✖ Tolak</button>
+          </form>
 
-      <form action="{{ route('admin.career.delete', $app->id) }}" method="POST" style="display:inline;">
-      @csrf @method('DELETE')
-      <button class="btn btn-danger btn-sm">Hapus</button>
-      </form>
+          <form action="{{ route('admin.career.delete', $app->id) }}" method="POST" style="display:inline;">
+            @csrf
+            @method('DELETE')
+            <button class="btn btn-delete">🗑 Hapus</button>
+          </form>
+        </div>
+      </div>
+      @endforeach
     </div>
-    @endforeach
-    </div>
-  @endsection
+  </section>
 
 
   <script src="{{ asset('js/career.js') }}"></script>
