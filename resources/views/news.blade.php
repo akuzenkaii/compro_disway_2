@@ -37,17 +37,93 @@
             <a href="{{ route('register') }}" style="color: white; background-color: rgb(180, 0, 0); padding: 8px 14px; border-radius: 6px; margin-right: 6px;">Register</a>
             <a href="{{ route('password.request') }}" style="color: rgb(150, 0, 0); text-decoration: underline;">Lupa Password?</a>
           @else
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
-              @csrf
-              <button type="submit" style="color: white; background-color: rgb(200, 0, 0); padding: 8px 14px; border-radius: 6px; border: none; cursor: pointer;">Logout</button>
-            </form>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
+            @csrf
+            <button type="submit" style="color: white; background-color: rgb(200, 0, 0); padding: 8px 14px; border-radius: 6px; border: none; cursor: pointer;">Logout</button>
+          </form>
           @endguest
         </div>
       </div>
     </div>
   </nav>
-  </header>
-  
+</header>
+
+<section>
+  <div class="container-news">
+    <div class="main-content">
+      <div class="news-grid">
+        <div class="news-card">
+          <img src="images/news1.jpg" alt="News Image">
+          <h3>Judul Berita 1</h3>
+          <p class="date">24 Juni 2025 | 0 Komentar</p>
+          <p>Konten singkat berita ke-1 ini ditampilkan di halaman depan sebagai preview.</p>
+          <a href="#">Read More</a>
+        </div>
+        <div class="news-card">
+          <img src="images/news2.jpg" alt="News Image">
+          <h3>Judul Berita 2</h3>
+          <p class="date">24 Juni 2025 | 0 Komentar</p>
+          <p>Konten singkat berita ke-2 ini ditampilkan di halaman depan sebagai preview.</p>
+          <a href="#">Read More</a>
+        </div>
+        <div class="news-card">
+          <img src="images/news3.jpg" alt="News Image">
+          <h3>Judul Berita 3</h3>
+          <p class="date">24 Juni 2025 | 0 Komentar</p>
+          <p>Konten singkat berita ke-3 ini ditampilkan di halaman depan sebagai preview.</p>
+          <a href="#">Read More</a>
+        </div>
+        <div class="news-card">
+          <img src="images/news4.jpg" alt="News Image">
+          <h3>Judul Berita 4</h3>
+          <p class="date">24 Juni 2025 | 0 Komentar</p>
+          <p>Konten singkat berita ke-4 ini ditampilkan di halaman depan sebagai preview.</p>
+          <a href="#">Read More</a>
+        </div>
+        <div class="news-card">
+          <img src="images/news5.jpg" alt="News Image">
+          <h3>Judul Berita 5</h3>
+          <p class="date">24 Juni 2025 | 0 Komentar</p>
+          <p>Konten singkat berita ke-5 ini ditampilkan di halaman depan sebagai preview.</p>
+          <a href="#">Read More</a>
+        </div>
+        <div class="news-card">
+          <img src="images/news6.jpg" alt="News Image">
+          <h3>Judul Berita 6</h3>
+          <p class="date">24 Juni 2025 | 0 Komentar</p>
+          <p>Konten singkat berita ke-6 ini ditampilkan di halaman depan sebagai preview.</p>
+          <a href="#">Read More</a>
+        </div>
+      </div>
+    </div>
+
+    <aside class="sidebar">
+      <div class="widget">
+        <h4>Subscribe Widget</h4>
+        <ul>
+          <li><a href="#">Follow on Facebook</a></li>
+          <li><a href="#">Follow on Twitter</a></li>
+          <li><a href="#">Subscribe via RSS</a></li>
+        </ul>
+      </div>
+
+      <div class="widget">
+        <h4>Blog Category</h4>
+        <ul>
+          <li><a href="#">Berita Nasional</a></li>
+          <li><a href="#">Opini</a></li>
+          <li><a href="#">Politik</a></li>
+          <li><a href="#">Teknologi</a></li>
+        </ul>
+      </div>
+
+      <div class="widget">
+        <h4>Kalender</h4>
+        <p>📅 Juni 2025</p>
+      </div>
+    </aside>
+  </div>
+</section>
   <script src="{{ asset('js/news.js') }}"></script>
 
   <!-- ======= Footer Section ======= -->
