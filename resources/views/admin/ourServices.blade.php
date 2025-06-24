@@ -251,7 +251,52 @@
   </section>
   
   <!-- Public Relation Section -->
-   
+  <!-- Printing -->
+  <section id="printing-service" class="service-section">
+    <h2 class="section-title">Printing Services</h2>
+    <p class="section-description">
+      Kami menyediakan layanan cetak profesional seperti surat kabar, majalah, dan berbagai media cetak lainnya untuk kebutuhan bisnis dan informasi Anda.
+    </p>
+    <div class="container-printing">
+      <div class="printing-grid">
+        <!-- Kartu Produk Cetak -->
+        <div class="print-card">
+          <img src="../image/np1.jpg" alt="Sumatera Ekspres">
+          <h3>Surat Kabar</h3>
+          <p>Kami menerbitkan surat kabar harian seperti Sumatera Ekspres dan Jabar Ekspres untuk informasi aktual.</p>
+        </div>
+
+        <div class="print-card">
+          <img src="../image/np2.jpg" alt="Majalah Perusahaan">
+          <h3>Majalah & Company Profile</h3>
+          <p>Majalah khusus perusahaan untuk promosi brand dan pencitraan institusi Anda.</p>
+        </div>
+
+        <div class="print-card">
+          <img src="../image/poster1.jpg" alt="Laporan Tahunan">
+          <h3>Laporan Tahunan</h3>
+          <p>Layanan desain dan cetak laporan tahunan yang elegan dan informatif.</p>
+        </div>
+
+        <div class="print-card">
+          <img src="../image/poster2.jpg" alt="Branding Material">
+          <h3>Branding Material</h3>
+          <p>Beragam media cetak untuk memperkuat identitas merek Anda.</p>
+        </div>
+        <div class="print-card">
+          <img src="../image/poster2.jpg" alt="Branding Material">
+          <h3>Branding Material</h3>
+          <p>Beragam media cetak untuk memperkuat identitas merek Anda.</p>
+        </div>
+        <div class="print-card">
+          <img src="../image/poster2.jpg" alt="Branding Material">
+          <h3>Branding Material</h3>
+          <p>Beragam media cetak untuk memperkuat identitas merek Anda.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <!-- Floating action button -->
   <button class="fab" onclick="scrollToTop()">

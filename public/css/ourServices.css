@@ -210,6 +210,134 @@ nav img.logo:hover {
   transform: rotate(180deg);
 }
 
+/* === Printing Section Styles === */
+.service-section {
+  padding: 80px 20px;
+  background: linear-gradient(to bottom, #1b1b1b, #0d0d0d);
+  color: white;
+  overflow: hidden;
+}
+
+.printing-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+.printing-text {
+  flex: 1 1 400px;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.section-description {
+  font-size: 16px;
+  color: #ccc;
+  line-height: 1.6;
+  max-width: 500px;
+}
+
+.printing-cards {
+  flex: 1 1 500px;
+  position: relative;
+  height: 400px;
+}
+
+.print-card {
+  position: absolute;
+  width: 220px;
+  height: 320px;
+  background: #1f1f2e;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease;
+}
+
+.print-card img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-caption {
+  background: #282847;
+  color: #fff;
+  padding: 10px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-caption span {
+  font-weight: 600;
+}
+
+.card-caption small {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* Rotation styles for visual layering */
+.rotate-left {
+  top: 10px;
+  left: 10px;
+  transform: rotate(-15deg);
+  z-index: 2;
+}
+
+.rotate-right {
+  top: 50px;
+  left: 180px;
+  transform: rotate(10deg);
+  z-index: 3;
+}
+
+.rotate-left-alt {
+  top: 80px;
+  left: 80px;
+  transform: rotate(-5deg);
+  z-index: 1;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .printing-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .printing-cards {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: auto;
+  }
+
+  .print-card {
+    position: static;
+    transform: none !important;
+    width: 100%;
+    height: auto;
+  }
+
+  .print-card img {
+    height: auto;
+  }
+}
+
 /* === Footer Styles === */
 .site-footer {
   background-color: #434343;
