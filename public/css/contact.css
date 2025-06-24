@@ -8,6 +8,7 @@
 html, body {
     height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
 }
 
 /* NAVBAR */
@@ -205,6 +206,214 @@ nav img.logo:hover {
 .dropdown:hover .chevron {
     transform: rotate(180deg);
 }
+
+/* Container Top */
+.topContainer {
+  position: relative;
+  background: linear-gradient(135deg, #000000 0%, #4d0000 40%, #8B0000 70%, #ff1a1a 100%);
+  color: #ffffff;
+  min-height: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.topOverlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* efek gelap semi-transparan */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.topContent {
+  text-align: center;
+  max-width: 800px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.topContent h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.topContent p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.ctaButton {
+  background-color: #ffffff;
+  color: #8B0000;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.ctaButton:hover {
+  background-color: #8B0000;
+  color: #ffffff;
+}
+
+/* Simple animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contactSection {
+  background-color: #ffffff;
+  padding: 5rem 2rem;
+  color: #333;
+}
+
+.contactContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contactHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.contactHeader h2 {
+  font-size: 2.8rem;
+  color: #8B0000;
+  margin-bottom: 0.5rem;
+}
+
+.contactHeader p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Layout dua kolom */
+.contactContent {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: space-between;
+}
+
+.contactForm {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formGroup input,
+.formGroup textarea {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  border-color: #8B0000;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.1);
+}
+
+.submitButton {
+  align-self: flex-start;
+  padding: 0.75rem 2rem;
+  background-color: #8B0000;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #a30000;
+}
+
+/* Info Kontak */
+.contactInfo {
+  flex: 1 1 40%;
+}
+
+.contactInfo h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #8B0000;
+}
+
+.contactInfo ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.contactInfo ul li {
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  color: #444;
+}
+
+.contactInfo h4 {
+  margin-bottom: 0.5rem;
+  color: #8B0000;
+}
+
+.socialIcons a {
+  display: inline-block;
+  margin-right: 0.8rem;
+  color: #8B0000;
+  font-size: 1.3rem;
+  transition: color 0.3s ease;
+}
+
+.socialIcons a:hover {
+  color: #a30000;
+}
+
+.mapContainer {
+  margin-top: 1.5rem;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contactContent {
+    flex-direction: column;
+  }
+
+  .submitButton {
+    align-self: center;
+  }
+}
+
 
 /* === Footer Styles === */
 .site-footer {
