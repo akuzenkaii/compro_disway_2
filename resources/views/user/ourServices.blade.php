@@ -235,46 +235,68 @@
     </div>
   </section>
 
-  <!-- Public Relation Section -->
+  <!-- Public Relations Section -->
+  <section class="relations-section">
+    <div class="relations-text">
+      <h2>Public Relations</h2>
+      <p>Layanan Public Relations Disway membantu membangun citra positif dan menjalin hubungan baik antara klien dan publik dengan pendekatan media yang kuat.</p>
+
+      <h4>Layanan PR:</h4>
+      <ul>
+        <li>Penulisan & distribusi siaran pers</li>
+        <li>Media monitoring</li>
+        <li>Manajemen krisis</li>
+        <li>Media training untuk eksekutif</li>
+      </ul>
+
+      <h4>Keunggulan:</h4>
+      <p>Didukung oleh jaringan media Disway Group di seluruh Indonesia, jangkauan pesan menjadi lebih luas dan tepat sasaran.</p>
+    </div>
+
+    <div class="relations-image">
+    <img src="../image/rashford.png" alt="Public Relations Image" />
+    </div>
+  </section>
+
   <!-- Printing Section -->
   <section id="printing-service" class="service-section">
-  <div class="printing-wrapper">
-    <!-- Kiri: Teks -->
-    <div class="printing-text">
-      <h2 class="section-title">Layanan Cetak (Printing)</h2>
-      <p class="section-description">
-        Kami menyediakan layanan cetak profesional seperti surat kabar, majalah, poster, dan berbagai media cetak lainnya untuk kebutuhan bisnis dan promosi Anda.
-      </p>
+    <div class="printing-wrapper">
+      <!-- Kiri: Teks -->
+      <div class="printing-text">
+        <h2 class="section-title">Layanan Cetak (Printing)</h2>
+        <p class="section-description">
+          Kami menyediakan layanan cetak profesional seperti surat kabar, majalah, poster, dan berbagai media cetak lainnya untuk kebutuhan bisnis dan promosi Anda.
+        </p>
+      </div>
+
+      <!-- Kanan: Kartu Miring -->
+      <div class="printing-cards">
+        <div class="print-card rotate-left">
+          <img src="../image/np1.jpg" alt="Surat Kabar 1">
+          <div class="card-caption">
+            <span>Surat Kabar 1</span>
+            <small>20 items</small>
+          </div>
+        </div>
+
+        <div class="print-card rotate-right">
+          <img src="../image/poster1.jpg" alt="Poster 1">
+          <div class="card-caption">
+            <span>Poster 1</span>
+            <small>15 items</small>
+          </div>
+        </div>
+
+        <div class="print-card rotate-left-alt">
+          <img src="../image/poster2.jpg" alt="Branding Material">
+          <div class="card-caption">
+            <span>Branding Material</span>
+            <small>25 items</small>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <!-- Kanan: Kartu Miring -->
-    <div class="printing-cards">
-      <div class="print-card rotate-left">
-        <img src="../image/np1.jpg" alt="Surat Kabar 1">
-        <div class="card-caption">
-          <span>Surat Kabar 1</span>
-          <small>20 items</small>
-        </div>
-      </div>
-
-      <div class="print-card rotate-right">
-        <img src="../image/poster1.jpg" alt="Poster 1">
-        <div class="card-caption">
-          <span>Poster 1</span>
-          <small>15 items</small>
-        </div>
-      </div>
-
-      <div class="print-card rotate-left-alt">
-        <img src="../image/poster2.jpg" alt="Branding Material">
-        <div class="card-caption">
-          <span>Branding Material</span>
-          <small>25 items</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
   <!-- Floating action button -->
   <button class="fab" onclick="scrollToTop()">

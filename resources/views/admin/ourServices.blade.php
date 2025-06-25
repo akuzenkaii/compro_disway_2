@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <header>
+  <header>
     <nav class="navbar">
       <img src="{{ asset('image/disway.png') }}" class="logo" alt="Logo Disway" />
       <img class="burger" id="burger" src="{{ asset('svg/menu.svg') }}" alt="Menu" />
@@ -23,33 +23,33 @@
           <a href="{{ url('/home') }}">Home</a>
           <a href="{{ url('/about') }}">About Us</a>
           <a href="{{ url('/platform') }}">Platform Network
-          <a href="{{ url('/our-services') }}" class="edit-home" style="color: rgb(255, 0, 0);">Our Services</a>
-          <a href="{{ url('/news') }}">News</a>
-          <a href="{{ url('/career') }}">Career</a>
-          <a href="{{ url('/contact') }}">Contact</a>
+            <a href="{{ url('/our-services') }}" class="edit-home" style="color: rgb(255, 0, 0);">Our Services</a>
+            <a href="{{ url('/news') }}">News</a>
+            <a href="{{ url('/career') }}">Career</a>
+            <a href="{{ url('/contact') }}">Contact</a>
 
-          @auth
+            @auth
             <h3 style="color: rgb(220, 0, 0); margin-top: 10px;">
               Selamat datang, {{ Auth::user()->name }}!
             </h3>
-          @endauth
+            @endauth
 
-          <div class="btn-group" style="margin-top: 10px;">
-            @guest
+            <div class="btn-group" style="margin-top: 10px;">
+              @guest
               <a href="{{ route('login') }}" style="color: white; background-color: rgb(200, 0, 0); padding: 8px 14px; border-radius: 6px; margin-right: 6px;">Login</a>
               <a href="{{ route('register') }}" style="color: white; background-color: rgb(180, 0, 0); padding: 8px 14px; border-radius: 6px; margin-right: 6px;">Register</a>
               <a href="{{ route('password.request') }}" style="color: rgb(150, 0, 0); text-decoration: underline;">Lupa Password?</a>
-            @else
+              @else
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
                 @csrf
                 <button type="submit" style="color: white; background-color: rgb(200, 0, 0); padding: 8px 14px; border-radius: 6px; border: none; cursor: pointer;">Logout</button>
               </form>
-            @endguest
-          </div>
+              @endguest
+            </div>
         </div>
       </div>
     </nav>
-</header>
+  </header>
 
   <!-- Background decorative elements -->
   <section class="container-top">
@@ -236,62 +236,56 @@
 
         <div class="event-gallery">
           @foreach ($events as $event)
-        <div class="event-card">
-        <input type="checkbox" name="event_ids[]" value="{{ $event->id }}" class="event-checkbox">
-        <div class="event-img" style="background-image: url('{{ $event->img }}')"></div>
-        <div class="event-info">
-          <h4>{{ $event->title }}</h4>
-          <p>{{ $event->desc }}</p>
-        </div>
-        <button onclick="deleteSingle({{ $event->id }})" class="delete-btn" type="button">Hapus</button>
-        </div>
-      @endforeach
+          <div class="event-card">
+            <input type="checkbox" name="event_ids[]" value="{{ $event->id }}" class="event-checkbox">
+            <div class="event-img" style="background-image: url('{{ $event->img }}')"></div>
+            <div class="event-info">
+              <h4>{{ $event->title }}</h4>
+              <p>{{ $event->desc }}</p>
+            </div>
+            <button onclick="deleteSingle({{ $event->id }})" class="delete-btn" type="button">Hapus</button>
+          </div>
+          @endforeach
         </div>
       </form>
   </section>
-  
+
   <!-- Public Relation Section -->
   <!-- Printing -->
   <section id="printing-service" class="service-section">
-    <h2 class="section-title">Printing Services</h2>
-    <p class="section-description">
-      Kami menyediakan layanan cetak profesional seperti surat kabar, majalah, dan berbagai media cetak lainnya untuk kebutuhan bisnis dan informasi Anda.
-    </p>
-    <div class="container-printing">
-      <div class="printing-grid">
-        <!-- Kartu Produk Cetak -->
-        <div class="print-card">
-          <img src="../image/np1.jpg" alt="Sumatera Ekspres">
-          <h3>Surat Kabar</h3>
-          <p>Kami menerbitkan surat kabar harian seperti Sumatera Ekspres dan Jabar Ekspres untuk informasi aktual.</p>
+    <div class="printing-wrapper">
+      <!-- Kiri: Teks -->
+      <div class="printing-text">
+        <h2 class="section-title">Layanan Cetak (Printing)</h2>
+        <p class="section-description">
+          Kami menyediakan layanan cetak profesional seperti surat kabar, majalah, poster, dan berbagai media cetak lainnya untuk kebutuhan bisnis dan promosi Anda.
+        </p>
+      </div>
+
+      <!-- Kanan: Kartu Miring -->
+      <div class="printing-cards">
+        <div class="print-card rotate-left">
+          <img src="../image/np1.jpg" alt="Surat Kabar 1">
+          <div class="card-caption">
+            <span>Surat Kabar 1</span>
+            <small>20 items</small>
+          </div>
         </div>
 
-        <div class="print-card">
-          <img src="../image/np2.jpg" alt="Majalah Perusahaan">
-          <h3>Majalah & Company Profile</h3>
-          <p>Majalah khusus perusahaan untuk promosi brand dan pencitraan institusi Anda.</p>
+        <div class="print-card rotate-right">
+          <img src="../image/poster1.jpg" alt="Poster 1">
+          <div class="card-caption">
+            <span>Poster 1</span>
+            <small>15 items</small>
+          </div>
         </div>
 
-        <div class="print-card">
-          <img src="../image/poster1.jpg" alt="Laporan Tahunan">
-          <h3>Laporan Tahunan</h3>
-          <p>Layanan desain dan cetak laporan tahunan yang elegan dan informatif.</p>
-        </div>
-
-        <div class="print-card">
+        <div class="print-card rotate-left-alt">
           <img src="../image/poster2.jpg" alt="Branding Material">
-          <h3>Branding Material</h3>
-          <p>Beragam media cetak untuk memperkuat identitas merek Anda.</p>
-        </div>
-        <div class="print-card">
-          <img src="../image/poster2.jpg" alt="Branding Material">
-          <h3>Branding Material</h3>
-          <p>Beragam media cetak untuk memperkuat identitas merek Anda.</p>
-        </div>
-        <div class="print-card">
-          <img src="../image/poster2.jpg" alt="Branding Material">
-          <h3>Branding Material</h3>
-          <p>Beragam media cetak untuk memperkuat identitas merek Anda.</p>
+          <div class="card-caption">
+            <span>Branding Material</span>
+            <small>25 items</small>
+          </div>
         </div>
       </div>
     </div>
@@ -358,17 +352,17 @@
   </footer>
 
   <script>
-    window.deleteSingle = function (id) {
+    window.deleteSingle = function(id) {
       if (!confirm('Yakin ingin menghapus event ini?')) return;
 
       fetch(`/events/${id}`, {
-        method: 'DELETE',
-        headers: {
-          'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        }
-      })
+          method: 'DELETE',
+          headers: {
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          }
+        })
         .then(res => {
           if (!res.ok) throw new Error('Gagal menghapus');
           // Reload data di halaman (bisa juga hanya hapus elemen DOM jika ingin dinamis)
