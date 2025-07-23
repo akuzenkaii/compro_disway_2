@@ -289,65 +289,6 @@ nav img.logo:hover {
   opacity: 0.8;
 }
 
-/* Public Relations Section*/
-.relations-section {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: white;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  animation: fadeInUp 1s ease forwards;
-  padding: 40px;
-}
-
-.relations-text h4 {
-  width: 55%;
-  color: #931616;
-}
-
-.relations-text h2 {
-  color: #931616;
-  font-size: 32px;
-  margin-bottom: 20px;
-}
-
-.relations-text p {
-  font-size: 16px;
-  color: #000000;
-  margin-bottom: 20px;
-  line-height: 1.7;
-}
-
-.relations-text ul {
-  list-style: none;
-  padding-left: 0;
-  margin-bottom: 20px;
-}
-
-.relations-text ul li::before {
-  content: "✔";
-  color: #3a7bd5;
-  margin-right: 10px;
-}
-
-.relations-image {
-  width: 40%;
-  height: 100%;
-  border-radius: 0 40px 40px 0;
-  overflow: hidden;
-  position: relative;
-}
-
-.relations-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 20px;
-  object-fit: cover;
-}
-
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -1268,4 +1209,248 @@ nav img.logo:hover {
   position: relative;
 }
 
-/* Section Public Relationship */
+/* Public Relations Section */
+/* Public Relations Section */
+.pr-section {
+  padding: 100px 20px 120px; /* Disamakan dengan .event-section */
+  background: #000000;
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 100%; /* Disamakan dengan .event-container */
+}
+
+.pr-container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.pr-shape {
+  position: absolute;
+  background: #FF0000;
+  opacity: 0.1;
+}
+
+.shape-top {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: float 6s infinite ease-in-out;
+}
+
+.shape-bottom {
+  width: 150px;
+  height: 150px;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  bottom: -75px;
+  right: 50%;
+  transform: translateX(50%);
+  animation: rotate 10s infinite linear;
+}
+
+.pr-header {
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 3;
+}
+
+.pr-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #FF0000;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.pr-subtitle {
+  font-size: 1.2rem;
+  color: #FFFFFF;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.pr-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Mirip dengan .event-gallery */
+  gap: 28px;
+  align-items: center;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 3;
+  min-height: 400px;
+  align-items: stretch; /* Memastikan kartu memiliki tinggi yang sama */
+}
+
+.pr-card {
+  background: #1c1c1c;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.pr-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+}
+
+.pr-text {
+  padding: 16px;
+  text-align: left;
+  flex-grow: 1;
+}
+
+.pr-intro {
+  font-size: 1.1rem;
+  color: #CCCCCC;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  animation: fadeIn 1.5s ease-in;
+}
+
+.pr-services-card {
+  background: #1A1A1A;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.pr-services-card:hover {
+  transform: translateY(-3px);
+}
+
+.pr-services-card h3 {
+  color: #FF0000;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.pr-services {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.service-item {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  color: #FFFFFF;
+  transition: color 0.3s;
+  cursor: default;
+}
+
+.service-item:hover {
+  color: #FF0000;
+}
+
+.pr-advantage {
+  font-size: 1.1rem;
+  color: #CCCCCC;
+  line-height: 1.7;
+  margin-top: 15px;
+  animation: fadeIn 2s ease-in;
+}
+
+.pr-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px; /* Tinggi minimum untuk gambar */
+}
+
+.pr-king {
+  width: 120px;
+  height: 120px;
+  background: url('https://via.placeholder.com/120?text=King') no-repeat center;
+  background-size: contain;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.5s;
+}
+
+.pr-footer {
+  text-align: center;
+  position: relative;
+  z-index: 3;
+}
+
+.pr-callout {
+  font-size: 1.3rem;
+  color: #FF0000;
+  font-weight: 600;
+  margin-bottom: 20px;
+  animation: bounceIn 1s ease-out;
+}
+
+.pr-contact {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.pr-website,
+.pr-phone {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.pr-website:hover,
+.pr-phone:hover {
+  color: #FF0000;
+}
+
+@media (max-width: 768px) {
+  .pr-title {
+    font-size: 2rem;
+  }
+
+  .pr-subtitle {
+    font-size: 1rem;
+  }
+
+  .pr-content {
+    grid-template-columns: 1fr; /* Satu kolom pada layar kecil */
+    gap: 20px;
+  }
+
+  .pr-card {
+    width: 100%;
+  }
+
+  .pr-king {
+    width: 100px;
+    height: 100px;
+  }
+
+  .pr-callout {
+    font-size: 1.1rem;
+  }
+
+  .pr-contact {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .shape-top,
+  .shape-bottom {
+    display: none;
+  }
+}

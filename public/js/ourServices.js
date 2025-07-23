@@ -320,3 +320,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+function showPrMessage() {
+  alert("Dengan layanan PR Disway, Anda akan mendapatkan strategi yang disesuaikan untuk kebutuhan bisnis Anda. Hubungi kami untuk detail lebih lanjut!");
+  document.querySelector('.pr-king').style.transform = 'rotate(360deg)';
+  setTimeout(() => {
+    document.querySelector('.pr-king').style.transform = 'rotate(0deg)';
+  }, 500);
+}

@@ -235,28 +235,35 @@
     </div>
   </section>
 
-  <!-- Public Relations Section -->
-  <section class="relations-section">
-    <div class="relations-text">
-      <h2>Public Relations</h2>
-      <p>Layanan Public Relations Disway membantu membangun citra positif dan menjalin hubungan baik antara klien dan publik dengan pendekatan media yang kuat.</p>
-
-      <h4>Layanan PR:</h4>
-      <ul>
-        <li>Penulisan & distribusi siaran pers</li>
-        <li>Media monitoring</li>
-        <li>Manajemen krisis</li>
-        <li>Media training untuk eksekutif</li>
-      </ul>
-
-      <h4>Keunggulan:</h4>
-      <p>Didukung oleh jaringan media Disway Group di seluruh Indonesia, jangkauan pesan menjadi lebih luas dan tepat sasaran.</p>
+<!-- Public Relations Section -->
+<section class="pr-section">
+  <div class="pr-container">
+    <div class="pr-shape shape-top"></div>
+    <div class="pr-header">
+      <h1 class="pr-title">Public Relations</h1>
+      <p class="pr-subtitle">Membangun Citra Positif & Hubungan Unggulan</p>
     </div>
-
-    <div class="relations-image">
-    <img src="../image/rashford.png" alt="Public Relations Image" />
+    <div class="pr-content">
+      <div class="pr-text">
+        <p class="pr-intro">Temukan kekuatan Public Relations Disway untuk mengubah persepsi publik dan membangun koneksi yang kuat. Dengan strategi cerdas, kami membantu Anda menonjol di tengah persaingan!</p>
+        <div class="pr-services-card">
+          <h3>Layanan PR Eksklusif</h3>
+          <ul class="pr-services">
+            <li class="service-item">Penulisan & Distribusi Siaran Pers yang Menarik</li>
+            <li class="service-item">Media Monitoring Real-Time</li>
+            <li class="service-item">Manajemen Krisis dengan Solusi Cepat</li>
+            <li class="service-item">Media Training untuk Eksekutif Berpengaruh</li>
+          </ul>
+        </div>
+        <p class="pr-advantage">Keunggulan kami? Jaringan media Disway Group yang tersebar luas di Indonesia, memastikan pesan Anda sampai dengan presisi maksimal. Coba bayangkan dampaknya!</p>
+      </div>
+      <div class="pr-visual">
+        <div class="pr-king"></div>
+      </div>
     </div>
-  </section>
+    <div class="pr-shape shape-bottom"></div>
+  </div>
+</section>  
 
   <!-- Printing Section -->
   <section id="printing-service" class="service-section">

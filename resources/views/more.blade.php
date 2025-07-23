@@ -42,7 +42,8 @@
 
     <div class="menu-items" id="menu">
       <div class="menu menu-left">
-        <a href="{{ url('/more') }}" class="edit-home" style="color: rgb(255, 0, 0);">Media</a>
+      <a href="{{ url('/home') }}" class="edit-home">Home</a>  
+      <a href="{{ url('/more') }}" class="edit-home" style="color: rgb(255, 0, 0);">Media</a>
         <a href="{{ url('/about') }}">About Us</a>
 
         <div class="dropdown">

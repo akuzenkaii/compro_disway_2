@@ -55,7 +55,7 @@
       <div class="topContent">
         <h2>Baca Berita Terkini</h2>
         <p>Untuk mengetahui peristiwa yang sedang terjadi saat ini.</p>
-        <a href="#content" class="ctaButton">Hubungi Saya</a>
+        <a href="#content" class="ctaButton">Baca Sekarang</a>
       </div>
     </div>
   </section>

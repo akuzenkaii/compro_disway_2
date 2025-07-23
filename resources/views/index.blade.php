@@ -145,7 +145,7 @@
 
 
   <!--Platform Network-->
-  <section class="network-section" style="font-family: Arial, Helvetica, sans-serif;background-color: #960606;">
+  <section class="network-section" style="font-family: Arial, Helvetica, sans-serif;">
     <h2 class="h2-text">Platform Network</h2>
     <p class="network-text">
       Disway adalah platform media berita terintegrasi yang mencakup jaringan televisi regional, surat kabar, dan media
