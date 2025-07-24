@@ -235,35 +235,34 @@
     </div>
   </section>
 
-<!-- Public Relations Section -->
-<section class="pr-section">
-  <div class="pr-container">
-    <div class="pr-shape shape-top"></div>
-    <div class="pr-header">
-      <h1 class="pr-title">Public Relations</h1>
-      <p class="pr-subtitle">Membangun Citra Positif & Hubungan Unggulan</p>
-    </div>
-    <div class="pr-content">
-      <div class="pr-text">
-        <p class="pr-intro">Temukan kekuatan Public Relations Disway untuk mengubah persepsi publik dan membangun koneksi yang kuat. Dengan strategi cerdas, kami membantu Anda menonjol di tengah persaingan!</p>
-        <div class="pr-services-card">
-          <h3>Layanan PR Eksklusif</h3>
-          <ul class="pr-services">
-            <li class="service-item">Penulisan & Distribusi Siaran Pers yang Menarik</li>
-            <li class="service-item">Media Monitoring Real-Time</li>
-            <li class="service-item">Manajemen Krisis dengan Solusi Cepat</li>
-            <li class="service-item">Media Training untuk Eksekutif Berpengaruh</li>
-          </ul>
-        </div>
-        <p class="pr-advantage">Keunggulan kami? Jaringan media Disway Group yang tersebar luas di Indonesia, memastikan pesan Anda sampai dengan presisi maksimal. Coba bayangkan dampaknya!</p>
+  <!-- Public Relations Section -->
+  <section class="pr-section">
+    <div class="pr-container">
+      <div class="pr-shape shape-top"></div>
+      <div class="pr-header">
+        <h1 class="pr-title">Public Relations</h1>
+        <p class="pr-subtitle">Membangun Citra Positif & Hubungan Unggulan</p>
       </div>
-      <div class="pr-visual">
-        <div class="pr-king"></div>
+      <div class="pr-content">
+        <div class="pr-text">
+          <p class="pr-intro">Temukan kekuatan Public Relations Disway untuk mengubah persepsi publik dan membangun koneksi yang kuat. Dengan strategi cerdas, kami membantu Anda menonjol di tengah persaingan!</p>
+          <div class="pr-services-card">
+            <h3>Layanan PR Eksklusif</h3>
+            <div class="pr-services-grid">
+              <div class="service-card">Penulisan & Distribusi Siaran Pers yang Menarik</div>
+              <div class="service-card">Media Monitoring Real-Time</div>
+              <div class="service-card">Manajemen Krisis dengan Solusi Cepat</div>
+              <div class="service-card">Media Training untuk Eksekutif Berpengaruh</div>
+            </div>
+
+          </div>
+          <p class="pr-advantage">Keunggulan kami? Jaringan media Disway Group yang tersebar luas di Indonesia, memastikan pesan Anda sampai dengan presisi maksimal. Coba bayangkan dampaknya!</p>
+        </div>
       </div>
     </div>
     <div class="pr-shape shape-bottom"></div>
-  </div>
-</section>  
+    </div>
+  </section>
 
   <!-- Printing Section -->
   <section id="printing-service" class="service-section">
